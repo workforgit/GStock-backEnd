@@ -1,0 +1,24 @@
+package org.sid.gestionstock.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CommandeLine {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long commLineId;
+    private int quantity;
+    private byte discount;
+    private double amount;
+    @ManyToOne
+    private Commande commande;
+    @OneToOne
+    private Product product;
+}
